@@ -1,0 +1,32 @@
+<div id="weather">
+  <div id="desc"></div>
+  <div id="temp"></div>
+</div>
+
+<div>
+  <form id="city-form">
+    <div><input type="text" id="city-name"></div>
+    <div><input type="submit"></div>
+  </form>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+  $("#city-form").submit(function (event) {
+    event.preventDefault();
+
+    var cityName = $('#city-name').val();
+    getWeather(cityName);
+  });
+
+  function getWeather(city) {
+  $.get("http://api.openweathermap.org/data/2.5/weather?q="+city+"&APPID=6624af737a458f1860819bdf461860bf", function(data){
+    console.log(data);
+    //path, variables to send, callback
+    $("#desc").html(data.weather[0].description);
+    $("#temp").html(data.main.temp);
+  });
+}
+</script>
