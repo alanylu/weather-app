@@ -22,7 +22,7 @@
   });
 
   function getWeather(city) {
-  $.get("http://api.openweathermap.org/data/2.5/weather?q="+city+"&APPID=6624af737a458f1860819bdf461860bf", function(data){
+  $.get("https://api.openweathermap.org/data/2.5/weather?q="+city+"&APPID=6624af737a458f1860819bdf461860bf", function(data){
     console.log(data);
     //path, variables to send, callback
     $("#desc").html(data.weather[0].description);
